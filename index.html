@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TDAH Simplificado | Controle seu TDAH de Forma Natural</title>
+<meta name="description" content="Aprenda a controlar todos os sintomas do TDAH de forma natural com método comprovado. Mais de 8 mil vidas transformadas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;900&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #E8761A;
+    --orange-light: #F5922A;
+    --orange-dark: #C05E0E;
+    --orange-glow: rgba(232,118,26,0.35);
+    --black: #080808;
+    --dark: #111111;
+    --dark2: #181818;
+    --dark3: #222222;
+    --white: #F5F5F5;
+    --gray: #999;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* -------- NOISE TEXTURE OVERLAY -------- */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+  }
+
+  /* -------- NAV -------- */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 24px;
+    background: rgba(8,8,8,0.85);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(232,118,26,0.15);
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .nav-logo svg { width: 38px; height: 38px; }
+  .nav-logo span {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+  .nav-logo span b { color: var(--orange); }
+
+  /* -------- SECTIONS BASE -------- */
+  section { position: relative; z-index: 1; }
+
+  /* -------- HERO -------- */
+  .hero {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 30%, rgba(232,118,26,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 80% 80%, rgba(232,118,26,0.08) 0%, transparent 60%),
+      var(--black);
+    z-index: 0;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(232,118,26,0.12);
+    border: 1px solid rgba(232,118,26,0.4);
+    border-radius: 100px;
+    padding: 8px 18px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange-light);
+    margin-bottom: 28px;
+    animation: fadeDown 0.8s ease both;
+    position: relative; z-index: 1;
+  }
+  .hero-badge .dot {
+    width: 8px; height: 8px;
+    background: var(--orange);
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 10vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    position: relative; z-index: 1;
+    animation: fadeUp 0.9s 0.1s ease both;
+  }
+  .hero h1 .accent { color: var(--orange); }
+  .hero h1 .stroke {
+    -webkit-text-stroke: 2px var(--orange);
+    color: transparent;
+  }
+  .hero-sub {
+    max-width: 620px;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: rgba(245,245,245,0.7);
+    line-height: 1.7;
+    margin: 24px auto 40px;
+    position: relative; z-index: 1;
+    animation: fadeUp 0.9s 0.2s ease both;
+  }
+  .hero-sub strong { color: var(--white); }
+  .cta-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--orange-light), var(--orange-dark));
+    color: #000;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 18px 44px;
+    border-radius: 6px;
+    position: relative; z-index: 1;
+    box-shadow: 0 0 32px rgba(232,118,26,0.5), 0 4px 20px rgba(0,0,0,0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: fadeUp 0.9s 0.35s ease both;
+    cursor: pointer;
+    border: none;
+  }
+  .cta-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 0 54px rgba(232,118,26,0.7), 0 8px 32px rgba(0,0,0,0.6);
+  }
+  .cta-btn:active { transform: translateY(0) scale(0.98); }
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 56px;
+    position: relative; z-index: 1;
+    animation: fadeUp 0.9s 0.45s ease both;
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.4rem;
+    color: var(--orange);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  /* orbit decoration */
+  .orbit-wrap {
+    position: absolute;
+    width: 600px; height: 600px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .orbit {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(232,118,26,0.12);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation: spin linear infinite;
+  }
+  .orbit:nth-child(1) { width: 300px; height: 300px; animation-duration: 20s; }
+  .orbit:nth-child(2) { width: 450px; height: 450px; animation-duration: 35s; animation-direction: reverse; }
+  .orbit:nth-child(3) { width: 600px; height: 600px; animation-duration: 50s; }
+  .orbit-dot {
+    position: absolute;
+    width: 8px; height: 8px;
+    background: var(--orange);
+    border-radius: 50%;
+    top: -4px; left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 12px var(--orange);
+  }
+  @keyframes spin { to { transform: translate(-50%,-50%) rotate(360deg); } }
+
+  /* -------- PAIN SECTION -------- */
+  .pain {
+    padding: 100px 24px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--black) 0%, var(--dark) 100%);
+  }
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    letter-spacing: 0.03em;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .section-desc {
+    max-width: 600px;
+    margin: 0 auto 64px;
+    color: rgba(245,245,245,0.65);
+    line-height: 1.8;
+    font-size: 1.05rem;
+  }
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .pain-card {
+    background: var(--dark2);
+    border: 1px solid rgba(232,118,26,0.1);
+    border-radius: 12px;
+    padding: 32px 28px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .pain-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--orange), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .pain-card:hover { border-color: rgba(232,118,26,0.4); transform: translateY(-4px); }
+  .pain-card:hover::before { opacity: 1; }
+  .pain-icon {
+    width: 52px; height: 52px;
+    background: rgba(232,118,26,0.1);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+  }
+  .pain-icon svg { width: 26px; height: 26px; stroke: var(--orange); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .pain-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--white);
+  }
+  .pain-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; }
+
+  /* -------- AGITATE -------- */
+  .agitate {
+    padding: 100px 24px;
+    text-align: center;
+    background: var(--dark);
+  }
+  .quote-block {
+    max-width: 800px;
+    margin: 0 auto 64px;
+    padding: 48px 40px;
+    background: var(--dark2);
+    border-left: 4px solid var(--orange);
+    border-radius: 4px 12px 12px 4px;
+    text-align: left;
+    position: relative;
+  }
+  .quote-block::before {
+    content: '"';
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 8rem;
+    color: var(--orange);
+    opacity: 0.15;
+    position: absolute;
+    top: -10px; left: 20px;
+    line-height: 1;
+  }
+  .quote-block p {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+  .quote-block p span { color: var(--orange); }
+  .danger-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .danger-item {
+    background: rgba(232,118,26,0.06);
+    border: 1px solid rgba(232,118,26,0.2);
+    border-radius: 8px;
+    padding: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .danger-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: rgba(232,118,26,0.15);
+    position: absolute;
+    bottom: -8px; right: 10px;
+    line-height: 1;
+  }
+
+  /* -------- SOLUTION -------- */
+  .solution {
+    padding: 100px 24px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--dark) 0%, var(--black) 100%);
+  }
+  .solution-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    text-align: left;
+  }
+  @media (max-width: 700px) {
+    .solution-inner { grid-template-columns: 1fr; text-align: center; }
+  }
+  .solution-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hex-container {
+    position: relative;
+    width: 280px; height: 280px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto;
+  }
+  .hex-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px dashed rgba(232,118,26,0.25);
+    animation: spin linear infinite;
+  }
+  .hex-ring:nth-child(1) { width: 200px; height: 200px; animation-duration: 25s; }
+  .hex-ring:nth-child(2) { width: 260px; height: 260px; animation-duration: 40s; animation-direction: reverse; }
+  .hex-center {
+    width: 120px; height: 120px;
+    background: radial-gradient(circle, rgba(232,118,26,0.25), rgba(232,118,26,0.05));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid rgba(232,118,26,0.5);
+    box-shadow: 0 0 40px rgba(232,118,26,0.3);
+    position: relative; z-index: 2;
+  }
+  .hex-center svg { width: 56px; height: 56px; }
+  .solution-text h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .solution-text h2 span { color: var(--orange); }
+  .solution-text p {
+    font-size: 1rem;
+    color: rgba(245,245,245,0.7);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+  .check-list { list-style: none; margin: 24px 0; display: flex; flex-direction: column; gap: 12px; }
+  .check-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: var(--white);
+    font-weight: 500;
+  }
+  .check-list li::before {
+    content: '';
+    width: 20px; height: 20px;
+    min-width: 20px;
+    background: var(--orange);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+    background-size: 12px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 2px;
+  }
+
+  /* -------- TRIGGERS -------- */
+  .triggers {
+    padding: 100px 24px;
+    text-align: center;
+    background: var(--dark2);
+  }
+  .triggers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .trigger-card {
+    background: var(--dark3);
+    border-radius: 14px;
+    padding: 36px 24px;
+    text-align: center;
+    border: 1px solid rgba(232,118,26,0.08);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .trigger-card:hover {
+    border-color: rgba(232,118,26,0.4);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(232,118,26,0.1);
+  }
+  .trigger-icon {
+    width: 64px; height: 64px;
+    background: linear-gradient(135deg, rgba(232,118,26,0.2), rgba(232,118,26,0.05));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    border: 1px solid rgba(232,118,26,0.3);
+  }
+  .trigger-icon svg { width: 30px; height: 30px; stroke: var(--orange); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .trigger-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--orange-light);
+  }
+  .trigger-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.7; }
+
+  /* -------- PROOF -------- */
+  .proof {
+    padding: 100px 24px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--dark2), var(--dark));
+  }
+  .proof-numbers {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+    max-width: 800px;
+    margin: 0 auto 72px;
+    border: 1px solid rgba(232,118,26,0.2);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .proof-num-item {
+    flex: 1;
+    min-width: 160px;
+    padding: 40px 20px;
+    border-right: 1px solid rgba(232,118,26,0.15);
+    position: relative;
+    background: var(--dark3);
+  }
+  .proof-num-item:last-child { border-right: none; }
+  .proof-num-item .big {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    color: var(--orange);
+    line-height: 1;
+    display: block;
+  }
+  .proof-num-item .label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray);
+    display: block;
+    margin-top: 8px;
+  }
+  .testimonials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .testimonial {
+    background: var(--dark3);
+    border: 1px solid rgba(232,118,26,0.12);
+    border-radius: 12px;
+    padding: 28px 24px;
+    text-align: left;
+    position: relative;
+  }
+  .testimonial::before {
+    content: '"';
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem;
+    color: var(--orange);
+    opacity: 0.2;
+    position: absolute;
+    top: 4px; right: 16px;
+    line-height: 1;
+  }
+  .testimonial p { font-size: 0.92rem; color: rgba(245,245,245,0.8); line-height: 1.7; margin-bottom: 20px; }
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .author-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--orange-dark), var(--orange));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    color: #000;
+  }
+  .author-name { font-weight: 700; font-size: 0.9rem; color: var(--white); }
+  .author-label { font-size: 0.75rem; color: var(--gray); }
+  .stars { color: var(--orange); font-size: 0.85rem; letter-spacing: 2px; }
+
+  /* -------- METHOD STEPS -------- */
+  .method {
+    padding: 100px 24px;
+    text-align: center;
+    background: var(--black);
+  }
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .step {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    text-align: left;
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(232,118,26,0.1);
+    position: relative;
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    color: rgba(232,118,26,0.15);
+    line-height: 1;
+    min-width: 60px;
+    transition: color 0.3s;
+  }
+  .step:hover .step-num { color: var(--orange); }
+  .step-content h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--white);
+  }
+  .step-content p { font-size: 0.93rem; color: var(--gray); line-height: 1.7; }
+
+  /* -------- FINAL CTA -------- */
+  .final-cta {
+    padding: 120px 24px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--black) 0%, var(--dark2) 50%, var(--black) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(232,118,26,0.12) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  .final-cta h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .final-cta h2 span { color: var(--orange); }
+  .final-cta p {
+    max-width: 560px;
+    margin: 0 auto 48px;
+    font-size: 1.05rem;
+    color: rgba(245,245,245,0.65);
+    line-height: 1.8;
+    position: relative;
+  }
+  .cta-btn-large {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--orange-light), var(--orange-dark));
+    color: #000;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 22px 60px;
+    border-radius: 6px;
+    box-shadow: 0 0 60px rgba(232,118,26,0.6), 0 8px 40px rgba(0,0,0,0.6);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+  .cta-btn-large:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 0 80px rgba(232,118,26,0.8), 0 12px 50px rgba(0,0,0,0.7);
+  }
+  .cta-guarantee {
+    margin-top: 24px;
+    font-size: 0.8rem;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+    position: relative;
+  }
+
+  /* -------- FOOTER -------- */
+  footer {
+    padding: 40px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(232,118,26,0.1);
+    background: var(--black);
+  }
+  footer p { font-size: 0.8rem; color: rgba(153,153,153,0.5); }
+
+  /* -------- SCROLL ANIMATION -------- */
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* -------- SCROLLBAR -------- */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--dark); }
+  ::-webkit-scrollbar-thumb { background: var(--orange-dark); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="hex-clip">
+          <polygon points="50,2 93,26 93,74 50,98 7,74 7,26"/>
+        </clipPath>
+      </defs>
+      <polygon points="50,2 93,26 93,74 50,98 7,74 7,26" fill="#E8761A"/>
+      <g clip-path="url(#hex-clip)" fill="none" stroke="#000" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M50 20 L35 32 L35 50 L50 62 L65 50 L65 32 Z"/>
+        <path d="M35 32 L20 26 M65 32 L80 26 M50 62 L50 80"/>
+        <path d="M35 50 L20 56 M65 50 L80 56"/>
+        <path d="M50 20 L50 8"/>
+      </g>
+    </svg>
+    <span>TDAH <b>Simplificado</b></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="orbit-wrap">
+    <div class="orbit"><div class="orbit-dot"></div></div>
+    <div class="orbit"><div class="orbit-dot"></div></div>
+    <div class="orbit"><div class="orbit-dot"></div></div>
+  </div>
+  <div class="hero-badge"><span class="dot"></span>Metodo Comprovado — +8 mil vidas transformadas</div>
+  <h1>
+    Seu TDAH<br>
+    <span class="accent">te controla</span><br>
+    <span class="stroke">ou e voce</span><br>
+    que controla ele?
+  </h1>
+  <p class="hero-sub">
+    A maioria das pessoas com TDAH <strong>nunca descobre os gatilhos reais</strong> que sabotam sua mente.<br>
+    Nosso metodo muda isso — de forma natural, rapida e comprovada.
+  </p>
+  <a href="https://wa.me/5500000000000" class="cta-btn" target="_blank" rel="noopener">Quero controlar meu TDAH agora</a>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">+8mil</span><span class="stat-label">Vidas Transformadas</span></div>
+    <div class="stat"><span class="stat-num">+12k</span><span class="stat-label">Seguidores Ativos</span></div>
+    <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Natural</span></div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain">
+  <span class="section-label reveal">Os Perigos do TDAH ignorado</span>
+  <h2 class="section-title reveal">Voce reconhece <span style="color:var(--orange)">esses padroes</span>?</h2>
+  <p class="section-desc reveal">O TDAH nao tratado vai muito alem da falta de foco. Ele destroi relacionamentos, carreiras e a autoestima — silenciosamente.</p>
+  <div class="pain-grid">
+    <div class="pain-card reveal">
+      <div class="pain-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.89 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.8 1.18H6.8a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <h3>Relacionamentos destruidos</h3>
+      <p>Impaciencia, impulsividade e esquecimento constante afastam quem voce mais ama — e voce nem percebe por que.</p>
+    </div>
+    <div class="pain-card reveal">
+      <div class="pain-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <h3>Carreira travada no piloto automatico</h3>
+      <p>Projetos inacabados, procrastinacao cronica e explosao de prazo. O potencial existe — mas nunca se concretiza.</p>
+    </div>
+    <div class="pain-card reveal">
+      <div class="pain-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>Autoestima em colapso</h3>
+      <p>Anos ouvindo "voce e preguicoso", "poderia se esforcaro mais" constroem uma narrativa toxica que paralisa.</p>
+    </div>
+    <div class="pain-card reveal">
+      <div class="pain-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <h3>Tempo desperdicado sem retorno</h3>
+      <p>Horas de hiperfoco em coisas erradas, enquanto o que importa continua acumulando. O ciclo nao para sozinho.</p>
+    </div>
+    <div class="pain-card reveal">
+      <div class="pain-icon">
+        <svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+      </div>
+      <h3>Emocoes fora de controle</h3>
+      <p>Explosoes sem motivo aparente, ansiedade constante e a sensacao de estar sempre "no limite" sem razao clara.</p>
+    </div>
+    <div class="pain-card reveal">
+      <div class="pain-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <h3>Isolamento e mal-entendidos</h3>
+      <p>Dificuldade de manter conversas, esquecer compromissos e parecer "desligado" cria uma barreira invisivel com o mundo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AGITATE -->
+<section class="agitate">
+  <span class="section-label reveal">A Verdade que ninguem conta</span>
+  <h2 class="section-title reveal">O TDAH nao <span style="color:var(--orange)">espera</span>. Ele avanca.</h2>
+  <div class="quote-block reveal">
+    <p>Cada dia sem entender seus gatilhos, <span>voce cede mais terreno</span> para o TDAH. Ele nao e so uma "falta de foco" — e um sistema nervoso disparado por estimulos que voce ainda <span>nao aprendeu a identificar</span>.</p>
+  </div>
+  <div class="danger-list">
+    <div class="danger-item reveal">Adultos com TDAH tem 3x mais chance de divorcio<span class="danger-num">01</span></div>
+    <div class="danger-item reveal">60% relatam baixo desempenho cronico no trabalho<span class="danger-num">02</span></div>
+    <div class="danger-item reveal">Risco 2x maior de depressao e ansiedade comorbida<span class="danger-num">03</span></div>
+    <div class="danger-item reveal">80% nao recebem o suporte adequado ao longo da vida<span class="danger-num">04</span></div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution">
+  <span class="section-label reveal">O Metodo TDAH Simplificado</span>
+  <div class="solution-inner">
+    <div class="solution-visual reveal">
+      <div class="hex-container">
+        <div class="hex-ring"></div>
+        <div class="hex-ring"></div>
+        <div class="hex-center">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="50,2 93,26 93,74 50,98 7,74 7,26" fill="#E8761A" opacity="0.9"/>
+            <g fill="none" stroke="#000" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M50 20 L35 32 L35 50 L50 62 L65 50 L65 32 Z"/>
+              <path d="M35 32 L20 26 M65 32 L80 26 M50 62 L50 80"/>
+              <path d="M35 50 L20 56 M65 50 L80 56 M50 20 L50 8"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="solution-text reveal">
+      <h2>A solucao que <span>realmente</span> funciona</h2>
+      <p>Nosso metodo nao usa medicacao, nao e uma dieta restritiva e nao precisa de anos de terapia para funcionar. E um sistema de <strong>identificacao e neutralizacao de gatilhos</strong> validado por mais de 8 mil pessoas.</p>
+      <ul class="check-list">
+        <li>Identificacao precisa dos seus gatilhos pessoais</li>
+        <li>Tecnicas de regulacao do sistema nervoso</li>
+        <li>Estrategias de foco e producao sustentavel</li>
+        <li>Controle emocional sem medicamentos</li>
+        <li>Metodo adaptavel ao seu estilo de vida</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TRIGGERS -->
+<section class="triggers">
+  <span class="section-label reveal">Conheca seus inimigos</span>
+  <h2 class="section-title reveal">Os principais <span style="color:var(--orange)">gatilhos</span> do TDAH</h2>
+  <p class="section-desc reveal">O primeiro passo para controlar o TDAH e entender o que o dispara. A maioria das pessoas vive anos sem saber o que provoca seus piores momentos.</p>
+  <div class="triggers-grid">
+    <div class="trigger-card reveal">
+      <div class="trigger-icon">
+        <svg viewBox="0 0 24 24"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/><path d="M8 2v16M16 6v16"/></svg>
+      </div>
+      <h3>Superestimulacao Digital</h3>
+      <p>Redes sociais, notificacoes e multitarefas treinam seu cerebro para precisar de dopamina instantanea — agravando o TDAH diariamente.</p>
+    </div>
+    <div class="trigger-card reveal">
+      <div class="trigger-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M21.18 8.02A10 10 0 0 0 12 2v10l9.18-3.98z"/></svg>
+      </div>
+      <h3>Privacao de Sono</h3>
+      <p>Menos de 7h de sono degrada o cortex pre-frontal — exatamente a regiao ja comprometida no TDAH. E um ciclo vicioso.</p>
+    </div>
+    <div class="trigger-card reveal">
+      <div class="trigger-icon">
+        <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
+      </div>
+      <h3>Alimentacao Inflamatoria</h3>
+      <p>Acucar, ultraprocessados e excesso de cafeina criam picos e quedas de energia que imitam e amplificam os sintomas do TDAH.</p>
+    </div>
+    <div class="trigger-card reveal">
+      <div class="trigger-icon">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <h3>Sobrecarga Emocional</h3>
+      <p>Conflitos e estresse cronico manteme o sistema nervoso em modo de luta ou fuga — impossibilitando o foco e a organizacao.</p>
+    </div>
+    <div class="trigger-card reveal">
+      <div class="trigger-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </div>
+      <h3>Falta de Rotina com Proposito</h3>
+      <p>O cerebro com TDAH prospera com estrutura previsivel. Sem ela, cada dia e uma batalha nova contra o proprio caos interno.</p>
+    </div>
+    <div class="trigger-card reveal">
+      <div class="trigger-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3>Ambiente Social Toxico</h3>
+      <p>Pessoas que nao compreendem o TDAH reforcan vergonha e culpa — o que impede qualquer avanco no autoconhecimento.</p>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD STEPS -->
+<section class="method">
+  <span class="section-label reveal">Como funciona</span>
+  <h2 class="section-title reveal">3 passos para <span style="color:var(--orange)">transformar</span> sua relacao com o TDAH</h2>
+  <p class="section-desc reveal">Um processo simples, direto e validado por milhares de pessoas que ja passaram pelo mesmo que voce.</p>
+  <div class="steps">
+    <div class="step reveal">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <h3>Mapeie seus gatilhos pessoais</h3>
+        <p>Usamos um protocolo unico de auto-observacao para identificar exatamente quais situacoes, ambientes e emocoes disparam seus piores momentos. Sem esse mapa, qualquer estrategia e um tiro no escuro.</p>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <h3>Neutralize um gatilho por vez</h3>
+        <p>Com o mapa em maos, aplicamos tecnicas especificas para cada gatilho identificado. Sem tentar mudar tudo de uma vez — o metodo respeita a neurologia do TDAH e trabalha a favor dela.</p>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <h3>Construa sistemas que sustentam o progresso</h3>
+        <p>A ultima fase instala habitos e sistemas de suporte que funcionam no longo prazo — mesmo nos dias dificeis, mesmo quando a motivacao some. E aqui que a vida muda de verdade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof">
+  <span class="section-label reveal">Prova social</span>
+  <h2 class="section-title reveal">+8.000 pessoas ja <span style="color:var(--orange)">transformaram</span> suas vidas</h2>
+  <div class="proof-numbers reveal">
+    <div class="proof-num-item">
+      <span class="big">8mil+</span>
+      <span class="label">Vidas transformadas</span>
+    </div>
+    <div class="proof-num-item">
+      <span class="big">12.2k</span>
+      <span class="label">Seguidores ativos</span>
+    </div>
+    <div class="proof-num-item">
+      <span class="big">97%</span>
+      <span class="label">Relatam melhora real</span>
+    </div>
+  </div>
+  <div class="testimonials">
+    <div class="testimonial reveal">
+      <p>Passei 34 anos achando que era preguicoso e burro. Em 3 semanas com o metodo, entendi que eram gatilhos especificos destruindo meu foco. Minha vida profissional mudou completamente.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">R</div>
+        <div>
+          <div class="author-name">Ricardo M.</div>
+          <div class="author-label">Engenheiro, 34 anos</div>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial reveal">
+      <p>Meu filho tinha crises diarias na escola. Depois de identificar os gatilhos dele, as crises caíram 80% em um mes. Os professores nao acreditavam na transformacao.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">A</div>
+        <div>
+          <div class="author-name">Ana Paula S.</div>
+          <div class="author-label">Maee de crianca com TDAH</div>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial reveal">
+      <p>Tentei medicamento, terapia, dieta. Nada era sustentavel. O metodo da comunidade foi o unico que se adaptou a minha realidade e ainda funciona 1 ano depois.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">F</div>
+        <div>
+          <div class="author-name">Felipe T.</div>
+          <div class="author-label">Designer Freelancer, 28 anos</div>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2 class="reveal">Chega de deixar o <span>TDAH</span><br>no controle da sua vida</h2>
+  <p class="reveal">Fale agora com nossa equipe e descubra como o metodo pode ser adaptado para a sua realidade. Sem promessas falsas — so resultado documentado.</p>
+  <a href="https://wa.me/5500000000000" class="cta-btn-large reveal" target="_blank" rel="noopener">Falar com especialista no WhatsApp</a>
+  <p class="cta-guarantee reveal">Atendimento humanizado — Sem julgamentos — 100% gratuito</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2025 TDAH Simplificado. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Animated counter
+  function animateCount(el) {
+    const target = el.getAttribute('data-target');
+    if (!target) return;
+    const num = parseFloat(target);
+    const duration = 2000;
+    const step = num / (duration / 16);
+    let current = 0;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= num) { current = num; clearInterval(timer); }
+      el.textContent = Math.floor(current).toLocaleString('pt-BR');
+    }, 16);
+  }
+</script>
+</body>
+</html>
